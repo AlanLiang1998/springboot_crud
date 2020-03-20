@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gdpu.springbootcrud.mapper.EmployeeMapper">
+    <resultMap id="withDeptResultMap" type="Employee">
+        <id column="eid" property="eid"/>
+        <result column="emp_name" property="empName"/>
+        <result column="age" property="age"/>
+        <result column="gender" property="gender"/>
+        <result column="mobile" property="mobile"/>
+        <result column="dept_id" property="deptId"/>
+        <association property="department" column="dept_id" javaType="Department"
+                     select="com.gdpu.springbootcrud.mapper.DepartmentMapper.mySelectById"/>
+    </resultMap>
+    <sql id="base_column_list">
+        eid, emp_name ,age, gender, mobile ,dept_id
+    </sql>
+    <select id="selectPageWithDept" parameterType="com.baomidou.mybatisplus.extension.plugins.pagination.Page"
+            resultMap="withDeptResultMap">
+        select
+        <include refid="base_column_list"/>
+        from employee
+        <if test="ew.emptyOfWhere == false">
+            ${ew.customSqlSegment}
+        </if>
+    </select>
+</mapper>

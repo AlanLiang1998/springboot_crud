@@ -1,0 +1,23 @@
+spring:
+  #配置数据源
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springboot_crud
+    username: root
+    password: 1234
+
+  #禁用thymeleaf缓存
+  thymeleaf:
+    cache: false
+
+  #配置热部署
+  devtools:
+    restart:
+      enabled: false
+      #设置重启的目录
+      additional-paths: src/main/java
+
+mybatis-plus:
+  mapper-locations: ["classpath:/mapper/*.xml"]
+  type-aliases-package: com.gdpu.springbootcrud.entity

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>4xx</title>
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.min.css"
+          th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <script type="text/javascript" src="../../static/asserts/js/jquery.min.js"
+            th:src="@{/asserts/js/jquery.min.js}"></script>
+    <script type="text/javascript" src="../../static/bootstrap/js/bootstrap.min.js"
+            th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="container">
+    <!--导航条-->
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">管理后台</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#" th:href="@{/main/1}">员工管理<span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span th:text="${session.username}">用户名</span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="min-width: 100%">
+                            <a class="dropdown-item" href="#" th:href="@{/user/logout}">退出</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-danger" role="alert">
+                <div class="jumbotron">
+                    <h1 class="display-4" th:text="${status}">4xx</h1>
+                    <p class="lead">Page Error</p>
+                    <hr class="my-4">
+                    <p>您访问的页面出现未知错误......</p>
+                    <a class="btn btn-danger btn" href="#" role="button" th:href="@{/main/1}">返回首页</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

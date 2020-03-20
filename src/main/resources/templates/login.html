@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="generator" content="Jekyll v3.8.6">
+    <title>后台登录页面</title>
+    <link rel="canonical" href="https://v4.bootcss.com/docs/examples/sign-in/">
+    <!-- Bootstrap core CSS -->
+    <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"
+          th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="../static/asserts/css/signin.css" rel="stylesheet" th:href="@{/asserts/css/signin.css}">
+</head>
+<body class="text-center">
+<form class="form-signin" th:action="@{/user/login}" method="post">
+    <img class="mb-4" src="../static/asserts/img/bootstrap-solid.svg" alt="" width="72" height="72"
+         th:src="@{/asserts/img/bootstrap-solid.svg}">
+    <h1 class="h3 mb-3 font-weight-normal">请 登 录</h1>
+    <div class="alert alert-danger" role="alert" th:text="${msg}" th:if="${msg != null}">
+        A simple danger alert—check it out!
+    </div>
+    <label for="inputUsername" class="sr-only">用户名</label>
+    <input type="text" id="inputUsername" class="form-control" placeholder="用户名" required autofocus name="username">
+    <label for="inputPassword" class="sr-only">密码</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="密码" required name="password">
+    <div class="checkbox mb-3">
+        <label>
+            <input type="checkbox" value="remember-me"> 记住我
+        </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">登 录</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+</form>
+</body>
+</html>
